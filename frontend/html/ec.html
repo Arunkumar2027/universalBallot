@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Voting Application</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+      </div>
+      <div class="election-commission">
+        <h1>Election Commission of India</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="login.html">Voter</a></li>
+          <li><a href="ec.html">Election Commission</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="commission-login">
+    <div class="container1">
+      <h2>Election Commission Login</h2>
+      <form class="forms" id="loginForm" action="#" method="POST">
+        <div class="form-group">
+          <label for="username">Username (ID):</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="login-button">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Redirect to ec2.html
+    window.location.href = "ec2.html";
+  });
+</script>
+<style>
+ /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .election-commission {
+    flex-grow: 1;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Voter Login Section Styles */
+  .voter-login {
+    padding: 50px 0;
+  }
+  
+  .voter-login h2 {
+    margin-bottom: 20px;
+  }
+  
+  .voter-login form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .voter-login label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .voter-login input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .voter-login button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .voter-login button:hover {
+    background-color: #555;
+  }
+  h1{
+    
+    text-align:center;
+  }
+  .forms{
+    border-left: 20px;
+  }
+  
+  
+  
+</style>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast Vote</title>
+    <link rel="stylesheet" href="./frontend/css/both.css">
+</head>
+<header>
+  <div class="container1">
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+    </div>
+    <div class="election-commission">
+      <h1 id="h11">Election Commission of India</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="login.html">Voter</a></li>
+        <li><a href="EC.html">Election Commission</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body>
+    <div class="container">
+        <h1>Cast Vote</h1>
+        <form id="castVoteForm">
+            <fieldset id="candidateList">
+                <legend>Select Candidate:</legend>
+            </fieldset>
+            <button type="submit">Submit Vote</button>
+        </form>
+    </div>
+
+    <script>
+        // Retrieve candidates with images from localStorage and populate the radio buttons with images
+        var candidatesWithImages = JSON.parse(localStorage.getItem("candidatesWithImages")) || [];
+        var candidateListFieldset = document.getElementById("candidateList");
+        candidatesWithImages.forEach(function(candidate) {
+            var candidateInput = document.createElement("input");
+            candidateInput.type = "radio";
+            candidateInput.name = "candidate";
+            candidateInput.value = candidate.name;
+            var label = document.createElement("label");
+            label.textContent = candidate.name;
+            var img = document.createElement("img");
+            img.src = candidate.image;
+            img.alt = candidate.name + " image";
+            label.appendChild(img);
+            candidateListFieldset.appendChild(candidateInput);
+            candidateListFieldset.appendChild(label);
+            candidateListFieldset.appendChild(document.createElement("br"));
+        });
+
+        document.getElementById("castVoteForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var selectedCandidate = document.querySelector('input[name="candidate"]:checked');
+            if (selectedCandidate) {
+                // Update the vote count for the selected candidate in localStorage
+                var candidateVotes = JSON.parse(localStorage.getItem('candidateVotes')) || {};
+                candidateVotes[selectedCandidate.value] = (candidateVotes[selectedCandidate.value] || 0) + 1;
+                localStorage.setItem('candidateVotes', JSON.stringify(candidateVotes));
+                alert("Vote casted for: " + selectedCandidate.value);
+                // You can optionally redirect to the results page here
+                window.location.href = "login.html";
+            } else {
+                alert("Please select a candidate.");
+            }
+        });
+    </script>
+</body>
+</html>

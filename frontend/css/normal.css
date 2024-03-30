@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#video {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  border: 2px solid transparent; /* Set initial border */
+  animation: lightEffect 3s infinite alternate; /* Apply animation */
+}
+
+@keyframes lightEffect {
+  0% {
+    border-color: rgba(255, 255, 255, 0.3); /* Start with a semi-transparent border */
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.8); /* Peak brightness of the border */
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.3); /* Return to semi-transparent border */
+  }
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+
+#nextButton {
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: none;
+}

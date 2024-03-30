@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories Display</title>
+  <link rel="stylesheet" href="./frontend/css/auth.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+      </div>
+      <div class="election-commission">
+        <h1>Election Commission Name</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="categories">
+    <div class="container">
+      <h2>Select Category</h2>
+      <div class="category-options">
+        <div class="category">
+          <h3>Normal</h3>
+          <p>Image and Thumb Authentication</p>
+          <button onclick="nextPage1()">Next</button>
+        </div>
+        <div class="category">
+          <h3>Blind</h3>
+          <p>Voice and Thumb Authentication</p>
+          <button onclick="nextPage2()">Next</button>
+        </div>
+        <div class="category">
+          <h3>Hand Disabled</h3>
+          <p>Voice and Image Authentication</p>
+          <button onclick="nextPage3()">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function nextPage1() {
+      // Redirect to the next page (Page 3)
+      window.location.href = "normal.html";
+    }
+    function nextPage2() {
+      // Redirect to the next page (Page 3)
+      window.location.href = "normal.html";
+    }
+    function nextPage3() {
+      // Redirect to the next page (Page 3)
+      window.location.href = "hand.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories Display</title>
+  <link rel="stylesheet" href="./frontend/css/auth.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+      </div>
+      <div class="election-commission">
+        <h1>Election Commission Of India</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="categories">
+    <div class="container">
+      <h2>GET INTO</h2>
+      <div class="category-options">
+        <div class="category">
+          <h3>Add Candidate</h3>
+          <p>Add name and image</p>
+          <button onclick="nextPage1()">Next</button>
+        </div>
+        <div class="category">
+          <h3>View Results</h3>
+          <p>Voting Results</p>
+          <button onclick="nextPage2()">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function nextPage1() {
+      // Redirect to the next page (Page 3)
+      window.location.href = "addcandidate.html";
+    }
+    function nextPage2() {
+      // Redirect to the next page (Page 3)
+      window.location.href = "results.html";
+    }
+    
+  </script>
+</body>
+</html>

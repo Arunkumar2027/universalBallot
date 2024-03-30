@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Candidate</title>
+    <link rel="stylesheet" href="./frontend/css/both.css">
+</head>
+<header>
+    <div class="container1">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+      </div>
+      <div class="election-commission">
+        <h1 id="h11">Election Commission of India</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="login.html">Voter</a></li>
+          <li><a href="EC.html">Election Commission</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<body>
+    <div class="container">
+        <h1>Add Candidate</h1>
+        <form id="addCandidateForm">
+            <label for="candidateName">Candidate Name:</label>
+            <input type="text" id="candidateName" name="candidateName" required>
+            <label for="candidateImageURL">Image URL:</label>
+            <input type="url" id="candidateImageURL" name="candidateImageURL" required>
+            <button type="submit">Add Candidate</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("addCandidateForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var candidateName = document.getElementById("candidateName").value;
+            var candidateImageURL = document.getElementById("candidateImageURL").value;
+            if (candidateName && candidateImageURL) {
+                var candidate = {
+                    name: candidateName,
+                    image: candidateImageURL
+                };
+                var candidatesWithImages = JSON.parse(localStorage.getItem("candidatesWithImages")) || [];
+                candidatesWithImages.push(candidate);
+                localStorage.setItem("candidatesWithImages", JSON.stringify(candidatesWithImages));
+                alert("Candidate added successfully.");
+                document.getElementById("addCandidateForm").reset();
+            } else {
+                alert("Please provide both candidate name and image URL.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Voting Application</title>
+  <link rel="stylesheet" href="./frontend/css/login.css">
+</head>
+<body>  
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnm1uua3D4m1JHuwyXB9Y-9dXS53ijhVflMg&s" alt="Election Commission Logo">
+      </div>
+      <div class="election-commission">
+        <h1>Election Commission of India</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="login.html">Voter</a></li>
+          <li><a href="EC.html">Election Commission</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="voter-login">
+    <div class="container">
+      <h2>Voter Login</h2>
+      <form action="auth.html" method="POST" id="voterLoginForm">
+        <label for="voter-id">Enter Voter ID Number:</label>
+        <input type="text" id="voter-id" name="voter-id" required>
+        <div class="login-button">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      
+    </div>
+  </section>
+</body>
+</html>

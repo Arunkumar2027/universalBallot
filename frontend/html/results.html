@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Results</title>
+    <link rel="stylesheet" href="./frontend/css/results.css">
+</head>
+<body>
+    <h1>Vote Results</h1>
+    <div id="numericView">
+        <h2>Numeric View</h2>
+        <div id="candidateVotes"></div>
+    </div>
+
+    <div id="graphicalView">
+        <h2>Graphical View</h2>
+        <canvas id="voteChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        window.onload = function() {
+            displayResults();
+        };
+
+        function displayResults() {
+            const candidateVotes = JSON.parse(localStorage.getItem('candidateVotes')) || {};
+            const candidatesWithImages = JSON.parse(localStorage.getItem('candidatesWithImages')) || [];
+
+            // Display numeric view
+            const numericView = document.getElementById('candidateVotes');
+            numericView.innerHTML = ''; // Clear previous content
+            candidatesWithImages.forEach(function(candidate) {
+                const candidateName = candidate.name;
+                const voteCount = candidateVotes[candidateName] || 0;
+                const candidateDiv = document.createElement('div');
+                candidateDiv.innerHTML = `<img src="${candidate.image}" alt="${candidateName} image" width="100"><p>${candidateName}: ${voteCount} votes</p>`;
+                numericView.appendChild(candidateDiv);
+            });
+
+            // Display graphical view
+            const canvas = document.getElementById('voteChart');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const barWidth = 50;
+            const spacing = 30;
+            const startX = 50;
+            const startY = canvas.height - 30;
+            const barColor = ['#ff5733', '#33ff57', '#3333ff'];
+
+            candidatesWithImages.forEach(function(candidate, index) {
+                const x = startX + (barWidth + spacing) * index;
+                const candidateName = candidate.name;
+                const voteCount = candidateVotes[candidateName] || 0;
+                const barHeight = -voteCount * 10;
+                ctx.fillStyle = barColor[index] || '#000';
+                ctx.fillRect(x, startY, barWidth, barHeight);
+                ctx.fillStyle = '#000';
+                ctx.fillText(candidateName, x + barWidth / 2 - 30, startY + 20);
+                ctx.fillText(voteCount, x + barWidth / 2 - 10, startY + barHeight - 10);
+            });
+        }
+    </script>
+</body>
+</html>
